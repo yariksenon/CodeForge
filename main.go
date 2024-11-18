@@ -15,4 +15,5 @@ type User struct {
 
 func main() {
 	fmt.Println("Hello")
+	fmt.Println("How about you")
 }
