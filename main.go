@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/google/uuid"
 )
@@ -14,6 +15,10 @@ type User struct {
 }
 
 func main() {
-	fmt.Println("Hello")
-	fmt.Println("How about you")
+	http.HandleFunc("/", handleHome)
+	http.ListenAndServe(":8080", nil)
+}
+
+func handleHome(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Home page")
 }
